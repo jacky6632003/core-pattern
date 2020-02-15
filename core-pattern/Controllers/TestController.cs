@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using core_pattern.Controllers.ViewModels;
+using core_pattern.Infrastructure.Validators;
 using core_pattern.Service.Interface;
 using core_pattern.Service.ResultModel;
 using Microsoft.AspNetCore.Mvc;
@@ -22,8 +23,14 @@ namespace core_pattern.Controllers
             this._testService = testService;
         }
 
+        /// <summary>
+        /// test
+        /// </summary>
+        /// <param name="aa">test</param>
+        /// <returns></returns>
         [HttpGet]
-        public async Task<IEnumerable<TestViewModel>> Gettest()
+        [ValidatorAttribute(typeof(TestValidator))]
+        public async Task<IEnumerable<TestViewModel>> Gettest(string aa)
         {
             var data = await this._testService.GetTest();
             var result = this._mapper.Map<IEnumerable<TestResultModel>, IEnumerable<TestViewModel>>(data);

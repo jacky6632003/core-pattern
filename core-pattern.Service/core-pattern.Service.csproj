@@ -10,7 +10,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\core-pattern.Common\core-pattern.Common.csproj" />
     <ProjectReference Include="..\core-pattern.Repository\core-pattern.Repository.csproj" />
   </ItemGroup>
-
 </Project>

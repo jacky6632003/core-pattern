@@ -28,6 +28,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\core-pattern.Common\core-pattern.Common.csproj" />
     <ProjectReference Include="..\core-pattern.Service\core-pattern.Service.csproj" />
   </ItemGroup>
 </Project>

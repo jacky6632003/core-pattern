@@ -16,4 +16,7 @@
     <PackageReference Include="System.Data.SqlClient" Version="4.8.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\core-pattern.Common\core-pattern.Common.csproj" />
+  </ItemGroup>
 </Project>

@@ -28,6 +28,7 @@ namespace core_pattern.Repository.Implement
             //}
 
             var s = this._databaseHelper.WLDOConnectionString;
+            var aa = this._databaseHelper.MySQLConnectionString;
             List<TestDataModel> result = new List<TestDataModel>();
             result.Add(new TestDataModel { BlogId = 1, Url = "aaaa" });
             result.Add(new TestDataModel { BlogId = 2, Url = "aaaa" });
