@@ -21,23 +21,19 @@ namespace core_pattern.Repository.Implement
 
         public async Task<IEnumerable<TestDataModel>> GetTest()
         {
-            //using (SqlConnection conn = (_databaseHelper.GetConnection(this._databaseHelper.WLDOConnectionString)) as SqlConnection)
-            //{
-            //    var result = await conn.QueryAsync<TestDataModel>(GetTestSQL());
-            //    return result;
-            //}
-
-            var s = this._databaseHelper.WLDOConnectionString;
-            var aa = this._databaseHelper.MySQLConnectionString;
-            List<TestDataModel> result = new List<TestDataModel>();
-            result.Add(new TestDataModel { BlogId = 1, Url = "aaaa" });
-            result.Add(new TestDataModel { BlogId = 2, Url = "aaaa" });
-            return result;
+            using (SqlConnection conn = (_databaseHelper.GetConnection(this._databaseHelper.WLDOConnectionString)) as SqlConnection)
+            {
+                var result = await conn.QueryAsync<TestDataModel>(GetTestSQL());
+                return result;
+            }
         }
 
         private string GetTestSQL()
         {
             string sql = $@"
+SELECT [BlogId]
+      ,[Url]
+  FROM [dbo].[blog]
 ";
             return sql;
         }
