@@ -9,5 +9,7 @@ namespace core_pattern.Repository.Interface
     public interface ITestRepository
     {
         Task<IEnumerable<TestDataModel>> GetTest();
+
+        Task<IEnumerable<TestDataModel>> GetTestEntity();
     }
 }

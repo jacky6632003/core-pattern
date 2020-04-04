@@ -9,5 +9,7 @@ namespace core_pattern.Service.Interface
     public interface ITestService
     {
         Task<IEnumerable<TestResultModel>> GetTest();
+
+        Task<IEnumerable<TestResultModel>> GetTestEntity();
     }
 }

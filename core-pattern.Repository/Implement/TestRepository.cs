@@ -14,9 +14,12 @@ namespace core_pattern.Repository.Implement
     {
         private readonly IDatabaseHelper _databaseHelper;
 
-        public TestRepository(IDatabaseHelper databaseHelper)
+        private readonly MyDbContext _myDbContext;
+
+        public TestRepository(IDatabaseHelper databaseHelper, MyDbContext _myDbContext)
         {
             this._databaseHelper = databaseHelper;
+            this._myDbContext = _myDbContext;
         }
 
         public async Task<IEnumerable<TestDataModel>> GetTest()
@@ -26,6 +29,13 @@ namespace core_pattern.Repository.Implement
                 var result = await conn.QueryAsync<TestDataModel>(GetTestSQL());
                 return result;
             }
+        }
+
+        public async Task<IEnumerable<TestDataModel>> GetTestEntity()
+        {
+            var data = this._myDbContext.blog;
+
+            return data;
         }
 
         private string GetTestSQL()

@@ -29,5 +29,14 @@ namespace core_pattern.Service.Implement
 
             return result;
         }
+
+        public async Task<IEnumerable<TestResultModel>> GetTestEntity()
+        {
+            var data = await this._testRepository.GetTestEntity();
+
+            var result = this._mapper.Map<IEnumerable<TestDataModel>, IEnumerable<TestResultModel>>(data);
+
+            return result;
+        }
     }
 }

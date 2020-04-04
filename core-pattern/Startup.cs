@@ -17,6 +17,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace core_pattern
 {
@@ -86,10 +87,10 @@ namespace core_pattern
             // database connection - Mysql
             this.MySQLConnection = this.Configuration.GetConnectionString("MySQL");
 
-            //services.AddDbContext<MyContext>(options =>
-            //{
-            //    options.UseSqlServer(this.Configuration.GetConnectionString("WLDO"));
-            //});
+            services.AddDbContext<MyDbContext>(options =>
+            {
+                options.UseSqlServer(this.Configuration.GetConnectionString("WLDO"));
+            });
 
             //DB
             services.AddScoped<IDatabaseHelper>(x => new DatabaseHelper(WLDOonnection, MySQLConnection));

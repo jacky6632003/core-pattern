@@ -37,5 +37,15 @@ namespace core_pattern.Controllers
 
             return result;
         }
+
+        [HttpGet]
+        [Route("Entity")]
+        public async Task<IEnumerable<TestViewModel>> GettestEntity(string aa)
+        {
+            var data = await this._testService.GetTestEntity();
+            var result = this._mapper.Map<IEnumerable<TestResultModel>, IEnumerable<TestViewModel>>(data);
+
+            return result;
+        }
     }
 }
