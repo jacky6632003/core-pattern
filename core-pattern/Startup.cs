@@ -18,6 +18,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using Microsoft.EntityFrameworkCore;
+using core_pattern.Infrastructure.Filter;
 
 namespace core_pattern
 {
@@ -99,7 +100,11 @@ namespace core_pattern
 
             services.AddDendencyInjection();
 
-            services.AddControllers();
+            services.AddControllers(options =>
+            {
+                options.Filters.Add<ActionResultFilter>();
+                options.Filters.Add<ExceptionFilter>();
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
