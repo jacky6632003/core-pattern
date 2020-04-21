@@ -19,6 +19,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using Microsoft.EntityFrameworkCore;
 using core_pattern.Infrastructure.Filter;
+using core_pattern.Infrastructure.Middlewares;
 
 namespace core_pattern
 {
@@ -64,6 +65,9 @@ namespace core_pattern
                typeof(ServiceProfile).Assembly
 
            );
+
+            // 設定登入者資訊
+            services.AddOAuthPrePareLoginUser();
 
             services.AddSwaggerGen(options =>
             {
@@ -126,6 +130,7 @@ namespace core_pattern
             app.UseRouting();
 
             app.UseAuthorization();
+            //app.UseMiddleware<OAuthAuthenticationMiddleware>();
 
             app.UseEndpoints(endpoints =>
             {
