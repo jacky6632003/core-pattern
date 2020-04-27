@@ -1,5 +1,7 @@
 ﻿using AutoMapper;
+using core_pattern.Repository.ConditionModel;
 using core_pattern.Repository.DataModel;
+using core_pattern.Service.InfoModel;
 using core_pattern.Service.ResultModel;
 using System;
 using System.Collections.Generic;
@@ -15,6 +17,10 @@ namespace core_pattern.Service.Infrastructure.Mapping
         public ServiceProfile()
         {
             this.CreateMap<TestDataModel, TestResultModel>();
+
+            this.CreateMap<StationDataModel, StationResultModel>();
+
+            this.CreateMap<StationInfoModel, StationConditionModel>();
         }
     }
 }

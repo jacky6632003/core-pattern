@@ -23,8 +23,12 @@ namespace core_pattern.Infrastructure.Dependency
 
             services.AddScoped<ITestRepository, TestRepository>();
 
+            services.AddScoped<IStationRepository, StationRepository>();
+
             // Service
             services.AddScoped<ITestService, TestService>();
+
+            services.AddScoped<IStationService, StationService>();
 
             return services;
         }

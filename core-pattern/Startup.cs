@@ -77,7 +77,7 @@ namespace core_pattern
                     Title = "CORE",
                     Version = "v1"
                 });
-
+                options.DescribeAllEnumsAsStrings();
                 var basePath = AppContext.BaseDirectory;
                 var xmlFiles = Directory.EnumerateFiles(basePath, "*.xml", SearchOption.TopDirectoryOnly);
 
