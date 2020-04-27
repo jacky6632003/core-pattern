@@ -1,6 +1,7 @@
 ﻿using core_pattern.Repository.DataModel;
 using core_pattern.Repository.Helper;
 using core_pattern.Repository.Interface;
+using CoreProfiler;
 using Dapper;
 using System;
 using System.Collections.Generic;
@@ -24,10 +25,14 @@ namespace core_pattern.Repository.Implement
 
         public async Task<IEnumerable<TestDataModel>> GetTest()
         {
-            using (SqlConnection conn = (_databaseHelper.GetConnection(this._databaseHelper.WLDOConnectionString)) as SqlConnection)
+            var stepName = $"{nameof(TestRepository)}.{nameof(this.GetTest)}";
+            using (ProfilingSession.Current.Step(stepName))
             {
-                var result = await conn.QueryAsync<TestDataModel>(GetTestSQL());
-                return result;
+                using (SqlConnection conn = (_databaseHelper.GetConnection(this._databaseHelper.WLDOConnectionString)) as SqlConnection)
+                {
+                    var result = await conn.QueryAsync<TestDataModel>(GetTestSQL());
+                    return result;
+                }
             }
         }
 

@@ -20,6 +20,7 @@ using Microsoft.OpenApi.Models;
 using Microsoft.EntityFrameworkCore;
 using core_pattern.Infrastructure.Filter;
 using core_pattern.Infrastructure.Middlewares;
+using CoreProfiler.Web;
 
 namespace core_pattern
 {
@@ -118,7 +119,7 @@ namespace core_pattern
             {
                 app.UseDeveloperExceptionPage();
             }
-
+            app.UseCoreProfiler(true);
             app.UseSwagger();
             app.UseSwaggerUI(c =>
             {

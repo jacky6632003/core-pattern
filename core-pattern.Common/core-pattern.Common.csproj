@@ -5,4 +5,9 @@
     <RootNamespace>core_pattern.Common</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="coreprofiler" Version="1.1.4" />
+    <PackageReference Include="Dora.Interception" Version="3.0.0" />
+  </ItemGroup>
+
 </Project>
