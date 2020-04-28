@@ -46,7 +46,7 @@ namespace core_pattern.Controllers.Parameters
         /// <value>
         /// The top.
         /// </value>
-        public int top { get; set; }
+        public int top { get; set; } = 30;
 
         /// <summary>
         /// 跳過前幾筆

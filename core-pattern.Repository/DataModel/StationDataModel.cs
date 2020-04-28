@@ -6,11 +6,6 @@ namespace core_pattern.Repository.DataModel
 {
     public class StationDataModel
     {
-        public Station[] Property1 { get; set; }
-    }
-
-    public class Station
-    {
         public string StationUID { get; set; }
         public string StationID { get; set; }
         public string AuthorityID { get; set; }

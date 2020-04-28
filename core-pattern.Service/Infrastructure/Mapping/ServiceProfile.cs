@@ -21,6 +21,10 @@ namespace core_pattern.Service.Infrastructure.Mapping
             this.CreateMap<StationDataModel, StationResultModel>();
 
             this.CreateMap<StationInfoModel, StationConditionModel>();
+
+            this.CreateMap<Stationname, StationnameResultModel>();
+            this.CreateMap<Stationposition, StationpositionResultModel>();
+            this.CreateMap<Stationaddress, StationaddressResultModel>();
         }
     }
 }

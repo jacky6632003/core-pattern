@@ -21,6 +21,7 @@ using Microsoft.EntityFrameworkCore;
 using core_pattern.Infrastructure.Filter;
 using core_pattern.Infrastructure.Middlewares;
 using CoreProfiler.Web;
+using System.Net.Http;
 
 namespace core_pattern
 {
@@ -59,6 +60,8 @@ namespace core_pattern
             //IMapper mapper = mappingConfig.CreateMapper();
 
             //services.AddSingleton(mapper);
+
+            services.AddSingleton<HttpClient>();
 
             services.AddAutoMapper
            (
